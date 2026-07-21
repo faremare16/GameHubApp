@@ -1,5 +1,5 @@
 <div class="login-container">
-  <h2>Prijava na GameHub</h2>
+  <h2>Login on FarukoGameHub</h2>
 
   <div *ngIf="errorMessage" class="error-alert">
     {{ errorMessage }}
@@ -7,7 +7,7 @@
 
   <form (ngSubmit)="onLogin()">
     <div class="form-group">
-      <label for="username">Korisničko ime:</label>
+      <label for="username">Username:</label>
       <input 
         type="text" 
         id="username" 
@@ -18,7 +18,7 @@
     </div>
 
     <div class="form-group">
-      <label for="password">Lozinka:</label>
+      <label for="password">Password:</label>
       <input 
         type="password" 
         id="password" 
@@ -28,6 +28,6 @@
       />
     </div>
 
-    <button type="submit">Prijavi se</button>
+    <button type="submit">Login</button>
   </form>
 </div>

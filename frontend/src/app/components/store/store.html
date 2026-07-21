@@ -1,0 +1,33 @@
+<div class="store-container">
+  
+  <div class="header" *ngIf="currentUser">
+    <h2>FarukoGameHub Store</h2>
+    <div class="user-info">
+      <span>User: <strong>{{ currentUser.username }}</strong></span>
+      <span class="balance">Balance: <strong>${{ currentUser.balance }}</strong></span>
+    </div>
+  </div>
+
+  <div *ngIf="message" class="alert success">{{ message }}</div>
+  <div *ngIf="errorMessage" class="alert danger">{{ errorMessage }}</div>
+
+  <div class="games-grid">
+    <div class="game-card" *ngFor="let game of games">
+      <h3>{{ game.title }}</h3>
+      <p class="genre">Genre: {{ game.genre }}</p>
+      <p class="description">{{ game.description }}</p>
+      
+      <div class="card-footer">
+        <span class="price">${{ game.price }}</span>
+
+        <button 
+          [disabled]="hasGame(game.id)" 
+          (click)="buyGame(game.id)"
+          [ngClass]="{'bought': hasGame(game.id)}">
+          {{ hasGame(game.id) ? 'Purchased ✔' : 'Buy Game' }}
+        </button>
+      </div>
+    </div>
+  </div>
+
+</div>

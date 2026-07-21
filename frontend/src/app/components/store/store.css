@@ -1,0 +1,102 @@
+.store-container {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 20px;
+  color: #fff;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1e1e2f;
+  padding: 15px 25px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.user-info {
+  display: flex;
+  gap: 20px;
+  font-size: 1.1rem;
+}
+
+.balance {
+  color: #00d26a;
+}
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.game-card {
+  background-color: #2a2a3d;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.game-card h3 {
+  margin-top: 0;
+  color: #00d26a;
+}
+
+.genre {
+  font-style: italic;
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+.description {
+  color: #ccc;
+  margin: 15px 0;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.price {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+button:disabled.bought {
+  background-color: #444;
+  color: #888;
+  cursor: not-allowed;
+}
+
+.alert {
+  padding: 12px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+.success { background-color: #28a745; color: white; }
+.danger { background-color: #dc3545; color: white; }
