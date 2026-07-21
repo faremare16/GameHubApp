@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { UserService } from '../../services/user';
@@ -17,21 +17,27 @@ export class StoreComponent implements OnInit {
   message: string = '';
   errorMessage: string = '';
 
-  constructor(private http: HttpClient, private userService: UserService) {}
+  constructor(private http: HttpClient, private userService: UserService, private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
-    this.userService.currentUser$.subscribe((user) => {
-      this.currentUser = user;
-    });
     this.loadGames();
+    this.userService.currentUser$.subscribe({
+      next: (user) => {
+        this.currentUser = user;
+        this.cdr.detectChanges();
+      }
+    });
   }
 
   loadGames(){
     this.http.get<any[]>('http://localhost:8080/api/games').subscribe({
-      next: (data) => this.games = data,
+      next: (data) => {
+        console.log('Games loaded:', data);
+        this.games = data;
+        this.cdr.detectChanges();
+      },
       error: (err) => {
         console.error('Error loading games:', err);
-        this.errorMessage = 'Failed to load games.';
       }
     });
   }

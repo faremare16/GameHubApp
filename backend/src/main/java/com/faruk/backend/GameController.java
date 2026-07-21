@@ -7,7 +7,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/games")
-@CrossOrigin(origins = "http://localhost:4200") // Dozvoljavamo našem Angularu pristup
+@CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE}) // Dozvoljavamo našem Angularu pristup
 public class GameController {
 
     @Autowired

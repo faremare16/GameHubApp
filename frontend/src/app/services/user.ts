@@ -8,7 +8,9 @@ import { UserResponse } from '../models/user';
 })
 export class UserService {
     private apiUrl = 'http://localhost:8080/api/users';
-    private currentUserSubject= new BehaviorSubject<UserResponse | null>(null);
+    private currentUserSubject= new BehaviorSubject<UserResponse | null>(
+        JSON.parse(localStorage.getItem('currentUser') || 'null')
+    );
     public currentUser$ = this.currentUserSubject.asObservable();
 
     constructor(private http: HttpClient) { 
