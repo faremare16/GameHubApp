@@ -30,7 +30,7 @@ export class StoreComponent implements OnInit {
   }
 
   loadGames(){
-    this.http.get<any[]>('http://localhost:8080/api/games').subscribe({
+    this.http.get<any[]>('https://gamehubapp-backend.onrender.com/api/games').subscribe({
       next: (data) => {
         console.log('Games loaded:', data);
         this.games = data;

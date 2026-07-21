@@ -8,7 +8,7 @@ import { Game } from '../models/game';
     providedIn: 'root' //this says that this service is available for all aplication
 })
 export class GameServices {
-    private apiUrl='http://localhost:8080/api/games';
+    private apiUrl='https://gamehubapp-backend.onrender.com/api/games';
 
     constructor(private http: HttpClient){}
 

@@ -7,7 +7,7 @@ import { UserResponse } from '../models/user';
   providedIn: 'root'
 })
 export class UserService {
-    private apiUrl = 'http://localhost:8080/api/users';
+    private apiUrl = 'https://gamehubapp-backend.onrender.com/api/users';
     private currentUserSubject= new BehaviorSubject<UserResponse | null>(
         JSON.parse(localStorage.getItem('currentUser') || 'null')
     );
